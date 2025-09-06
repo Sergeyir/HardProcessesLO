@@ -66,9 +66,20 @@ Lastly add the following lines to your profile (replace 6.X.X with your LHAPDF6 
 
 ```sh
 export LHAPDF6_PATH=$PACKAGE_PATH/LHAPDF-6.X.X/build/
-export PYTHONPATH=$LHAPDF6_PATH/lib/python3.XX/site-packages:$PYTHONPATH
 export LD_LIBRARY_PATH=$LHAPDF6_PATH/lib:$LD_LIBRARY_PATH
 export PATH=$LHAPDF6_PATH/bin:$PATH
+```
+
+Also add the path to \_\_init.py\_\_ located somewhere in $LHAPDF6_PATH/lib/python3.XX/. This path might change with the distro, python, and LHAPDF versions. The resulting line you need to add might look like the following
+
+```sh
+export PYTHONPATH=$LHAPDF6_PATH/lib/python3.XX/site-packages:$PYTHONPATH
+```
+
+or
+
+```sh
+export PYTHONPATH=$LHAPDF6_PATH/lib/python3.XX/dist-packages/lhapdf:$PYTHONPATH
 ```
 
 ## PYTHIA8
@@ -76,10 +87,10 @@ export PATH=$LHAPDF6_PATH/bin:$PATH
 Download the source code from [here](https://pythia.org/). Place the .tar.gz file in $PACKAGE_PATH. After heading there run to extract files
 
 ```sh
-tar -xvzf pythia8*.tar.gz
+tar -xvzf pythia8*.tgz
 ```
 
-Then head into pythia8XXX directory (8XXX is the version you downloaded, replace X for your version). First run to configure
+Then head into pythia8XXX directory (8XXX is the version you downloaded, replace X for your version). First run to configure (you might need to change /bin/python-config to /bin/python3-config)
 
 ```sh
 ./configure --with-python-config=/bin/python-config --with-lhapdf6-config=$LHAPDF6_PATH/bin/lhapdf-config
@@ -94,14 +105,14 @@ make
 After the compilation is finished successfully, add the following lines to your profile (replace X to match your pythia8 version number)
 
 ```sh
-export PYTHIA8_PATH=$PACKAGE_PATH/pythia8XXX/build/
+export PYTHIA8_PATH=$PACKAGE_PATH/pythia8XXX
 export PYTHONPATH=$PYTHIA8_PATH/lib:$PYTHONPATH
-export LD_LIBRARY_PATH=$LHAPDF6_PATH/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=$PYTHIA8_PATH/lib:$LD_LIBRARY_PATH
 ```
 
 ## FASTJET3
 
-Install [swig](https://www.swig.org/) package first (can be installed with package manager). After download the source code from [here](https://fastjet.fr/). Place the .tar.gz file in $PACKAGE_PATH. After heading there run to extract files
+Install [swig](https://www.swig.org/) package first (it can be installed with package manager). After, download the source code from [here](https://fastjet.fr/). Place the .tar.gz file in $PACKAGE_PATH. After heading there run to extract files
 
 ```sh
 tar -xvzf fastjet-3*.tar.gz
@@ -127,3 +138,15 @@ export FASTJET3_PATH=$PACKAGE_PATH/fastjet-3.X.X/build
 export PYTHONPATH=$FASTJET3_PATH/lib/python3.XX/site-packages:$PYTHONPATH
 export LD_LIBRARY_PATH=$FASTJET3_PATH/lib:$LD_LIBRARY_PATH
 ```
+
+## How to check the installation
+
+In python run
+
+```py
+import lhapdf
+import pythia8
+import fastjet
+```
+
+If no errors occurred, the installation was successful
