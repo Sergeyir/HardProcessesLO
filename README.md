@@ -24,6 +24,8 @@ Using the factorization formula for $d \sigma / dy_{1} dy_{2} dp^2_{T}$ for LO h
 \frac{d \sigma}{dp^2_T dy_1 dy_2} = \frac{8 \pi p_T}{\hat{s}} \sum_{ijkl} x_{1} f_{i}(x_{1}, \mu_F^2) x_{2} f_{j}(x_{2}, \mu_F^2) \left[ \frac{d \sigma_{ij \rightarrow kl}}{d \Omega} (\hat{s}, \hat{t}, \hat{u}) + \frac{d \sigma_{ij \rightarrow kl}}{d \Omega} (\hat{t}, \hat{s}, \hat{u}) \right]
 ```
 
+If i and j are identical particle types, the second term $d \sigma_{ij \rightarrow kl} / d\Omega$ should be dropped.
+
 For this project the hard scale is implemented i.e. $\mu_F \approx p_T$
 
 $d \sigma_{ij \rightarrow kl}/d \Omega$ can be found in  in [2](#sources) (Eq. 51.4 - 51.12)
