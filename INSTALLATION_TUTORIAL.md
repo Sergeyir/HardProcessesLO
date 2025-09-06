@@ -98,3 +98,24 @@ export PYTHIA8_PATH=$PACKAGE_PATH/pythia8XXX/build/
 export PYTHONPATH=$PYTHIA8_PATH/lib:$PYTHONPATH
 export LD_LIBRARY_PATH=$LHAPDF6_PATH/lib:$LD_LIBRARY_PATH
 ```
+
+## FASTJET3
+
+Install [swig](https://www.swig.org/) package first (can be installed with package manager). After download the source code from [here](https://fastjet.fr/). Place the .tar.gz file in $PACKAGE_PATH. After heading there run to extract files
+
+```sh
+tar -xvzf fastjet-3*.tar.gz
+```
+
+Then head into fastjet-3.X.X directory (3.X.X is the version you downloaded, replace X for your version). First run to generate Makefile
+
+
+```sh
+mkdir build && ./configure --prefix=`pwd`/build --enable-pyext
+```
+
+After compile the code by running
+
+```sh
+make install -j
+```
