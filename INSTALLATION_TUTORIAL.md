@@ -119,3 +119,11 @@ After compile the code by running
 ```sh
 make install -j
 ```
+
+Lastly add to the your profile (replace 3.X.X and 3.XX with your fastjet and python version numbers respectively)
+
+```sh
+export FASTJET3_PATH=$PACKAGE_PATH/fastjet-3.X.X/build
+export PYTHONPATH=$FASTJET3_PATH/lib/python3.XX/site-packages:$PYTHONPATH
+export LD_LIBRARY_PATH=$FASTJET3_PATH/lib:$LD_LIBRARY_PATH
+```
