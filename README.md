@@ -43,7 +43,7 @@ The formulas for the needed cross section can be obtained with kinematic equatio
 # Installation
 
 ```sh
-git clone https://github.com/Sergeyir/HardProcessesLO
+git clone https://github.com/Sergeyir/HardProcessesLO --depth=1
 ```
 
 Install all requirements and configure environment variables described in [Installation tutorial](INSTALLATION_TUTORIAL.md)
