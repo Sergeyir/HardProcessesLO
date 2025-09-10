@@ -53,7 +53,7 @@ tar -xvzf LHAPDF-6*.tar.gz
 Then head into LHAPDF-6.X.X directory (6.X.X is the version you downloaded, replace X for your version). First run to configure
 
 ```sh
-mkdir build && ./configure --prefix=`pwd`/build
+mkdir build ; ./configure --prefix=`pwd`/build
 ```
 
 Then compile the code with the following command
@@ -122,7 +122,7 @@ Then head into fastjet-3.X.X directory (3.X.X is the version you downloaded, rep
 
 
 ```sh
-mkdir build && ./configure --prefix=`pwd`/build --enable-pyext
+mkdir build ; ./configure --prefix=`pwd`/build --enable-pyext
 ```
 
 After compile the code by running
