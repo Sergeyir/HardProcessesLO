@@ -43,10 +43,31 @@ The formulas for the needed cross section can be obtained with kinematic equatio
 # Installation
 
 ```sh
-git clone https://github.com/Sergeyir/HardProcessesLO --depth=1
+git clone https://github.com/Sergeyir/HardProcessesLO --depth=1 --recurse-submodules
 ```
 
 Install all requirements and configure environment variables described in [Installation tutorial](INSTALLATION_TUTORIAL.md)
+
+You can install the needed pdf set with lhapdf command (if you installed it with python):
+
+```sh
+lhapdf install name_of_pdf_set
+```
+
+Or by installing it in .tar.gz format from https://www.lhapdf.org/pdfsets.html and extracting it into $LHAPDF_PATH/share/LHAPDF directory.
+
+Python environment should work fine after the last step. If you need to use C++ for this project run
+
+```sh
+cmake .
+make -j
+```
+
+To update the repository to the newest version run in its root
+
+```sh
+git pull
+```
 
 # Sources
 
