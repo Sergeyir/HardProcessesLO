@@ -37,7 +37,7 @@ int main(int argc, char **argv)
 
    pythia.readString("Beams:eCM = " + inputFileContents["energy"].as<std::string>());
    pythia.readString("HardQCD:all = on");
-   //pythia.readString("PDF:pSet = " + inputFileContents["pdfset"].as<std::string>());
+   pythia.readString("PDF:pSet = " + inputFileContents["pdfset"].as<std::string>());
    pythia.readString("PhaseSpace:pTHatMin = " + inputFileContents["pthatmin"].as<std::string>());
 
 	pythia.init();

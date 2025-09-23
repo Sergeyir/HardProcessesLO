@@ -13,6 +13,8 @@
 #include <vector>
 #include <fstream>
 
+#include "LHAPDF/LHAPDF.h"
+
 #include "Pythia8/Pythia.h"
 
 #include "fastjet/PseudoJet.hh"
