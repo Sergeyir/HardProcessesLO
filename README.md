@@ -7,7 +7,7 @@ This is a simple projects that helps to study leading order (LO) hard processes 
 
 # Requirements
 
-- GNU GCC++17 or newer
+- GCC(>=7) (for C++17 support)
 - python3 + python3-dev (python-is-python3 package may also be required)
 - [ROOT6](https://root.cern/)
 - [LHAPDF6](https://lhapdf.hepforge.org/)
