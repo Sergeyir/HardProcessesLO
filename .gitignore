@@ -6,9 +6,11 @@ tmp/
 build/
 output/
 CMakeFiles/
+html/
 
 *:w
 *.pyc
+*.html
 __*
 *.tmp
 *.log
