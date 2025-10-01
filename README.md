@@ -13,6 +13,7 @@ This is a simple projects that helps to study leading order (LO) hard processes 
 - [LHAPDF6](https://lhapdf.hepforge.org/)
 - [PYTHIA8](https://pythia.org/) compiled with LHAPDF6
 - [FASTJET3](https://fastjet.fr/) 
+- [PyYAML](https://pypi.org/project/PyYAML/) (can be installed with pip or with package manager - python3-yaml)
 
 ROOT6, LHAPDF6, PYTHIA8, and FASTJET3 have to be compiled with python3 for the python interface. For more information see [Installation tutorial](INSTALLATION_TUTORIAL.md).
 
