@@ -17,7 +17,7 @@ int main(int argc, char **argv)
    if (argc != 3) 
    {
       std::cout << COLOR::BOLD_RED << "Error: " << COLOR::RESET << 
-                   "Expected 2 parameters while " + std::to_string(argc) + " "\
+                   "Expected 2 parameters while " + std::to_string(argc - 1) + " "\
                    "parameter(s) were provided \n Usage: bin/GenerateData "\
                    "inputFileName.yaml numberOfEvents" << std::endl;
       std::cout << "[" << COLOR::BOLD_GREEN << "INFO" << COLOR::RESET << "] " << 
