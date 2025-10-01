@@ -4,7 +4,7 @@ project(PairAnalysisPhenix)
 
 option(BUILD_SHARED_LIBS "Build using shared libraries" ON)
 
-set(CMAKE_CXX_FLAGS "-Wall -Werror -Wpedantic -pipe -O2 -g")
+set(CMAKE_CXX_FLAGS "-Wall -Wpedantic -pipe -O2 -g")
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
