@@ -69,7 +69,25 @@ make -j
 To update the repository to the newest version run in its root
 
 ```sh
-git pull
+git pull --recurse-submodules
+```
+
+# How to use
+
+## C++
+
+Run the compiled executable to generate 1000 events with pythia using pythia specification from file input/pp7TeV.yaml. You can change input file and number of events if needed
+
+```sh
+bin/GenerateData input/pp7TeV.yaml 1000
+```
+
+## python
+
+Run the python script to generate 1000 events with pythia using pythia specification from file input/pp7TeV.yaml. You can change input file and number of events if needed
+
+```sh
+python scripts/generate_data.py -i input/pp7TeV.yaml -n 1000
 ```
 
 # Sources
