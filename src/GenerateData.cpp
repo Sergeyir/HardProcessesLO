@@ -69,7 +69,7 @@ int main(int argc, char **argv)
 	pythia.init();
 
    // creating directory in which the file outputFile will be written
-   system("mkdir -p output");
+   void(system("mkdir -p output"));
    // file in which all histogram will be written; the following line will create 
    // (overwrite if exists) the file output/generated.root and root will point to it
    // so that TObject objects can be written in it by using method TObject::Write()
