@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0...4.0 FATAL_ERROR)
 
-project(PairAnalysisPhenix)
+project(HardProcessesLO)
 
 option(BUILD_SHARED_LIBS "Build using shared libraries" ON)
 
