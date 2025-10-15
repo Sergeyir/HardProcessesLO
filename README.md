@@ -90,6 +90,14 @@ Run the python script to generate 1000 events with pythia using pythia specifica
 python scripts/generate_data.py -i input/pp7TeV.yaml -n 1000
 ```
 
+# Implementing your changes
+
+Since the project may be updated you may need to pull the changes. This way implementing your changes to the code may cause conflict in git version. To circumvent this you can create a branch of this repo or just copy the contents of this repo to your directory and remove CMake files and cache:
+
+```sh
+rm -r CMakeFiles cmake_install.cmake CMakeCache.txt
+```
+
 # Sources
 
 1. [Michelangelo L. Mangano "Introduction to QCD"](https://cds.cern.ch/record/454171/files/p53.pdf)
