@@ -49,8 +49,7 @@ def generate_data(input_file_name : str, n_events : int) -> int :
             continue
 
         particles = []
-        # pythia.info cannot be found; needs a fix later
-        eventWeight = 1#pythia.info.weight()
+        eventWeight = pythia.infoPython().weight()
 
         for j in range(pythia.event.size()):
             part = pythia.event[j]
@@ -75,8 +74,7 @@ def generate_data(input_file_name : str, n_events : int) -> int :
         for jet in inclusive_jets:
             distrJetsPT.Fill(jet.pt(), eventWeight)
 
-    # pythia.info cannot be found; needs a fix later
-    #print(pythia.info.sigmaGen())
+    print(pythia.infoPython().sigmaGen())
 
     distrHardProcessPartonsPT.Write()
     distrJetsPT.Write()
