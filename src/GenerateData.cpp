@@ -121,7 +121,6 @@ int main(int argc, char **argv)
          {
             // prints particle id (more info on id: 
             // https://pdg.lbl.gov/2007/reviews/montecarlorpp.pdf)
-            //std::cout << pythia.event[j].id() << std::endl;
             
             // in experiments jets usually only consist of charged (+-1q) final state particles
             // neutral particles need to be excluded 
@@ -148,7 +147,7 @@ int main(int argc, char **argv)
          }
       }
 
-      // running jet clustering algorithm to 
+      // running jet clustering algorithm
       fastjet::ClusterSequence clusterSeq(particles, jetDef);
       // vector filled with jets reconstructed from vector particles
       std::vector<fastjet::PseudoJet> inclusiveJets = clusterSeq.inclusive_jets(pTHatMin);
