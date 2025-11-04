@@ -60,7 +60,7 @@ int main(int argc, char **argv)
    pythia.readString("PhaseSpace:pTHatMin = " + std::to_string(pTHatMin));
    // setting PDF set from LHAPDF6; pythia8 also has many predefined sets
    // (more info on https://pythia.org/latest-manual/PDFSelection.html)
-   pythia.readString("PDF:pSet = " + inputFileContents["pdfset"].as<std::string>());
+   pythia.readString("PDF:pSet = LHAPDF6:" + inputFileContents["pdfset"].as<std::string>());
    // uncomment the next line if you do not need for pythia to print event info and banner
    //pythia.readString("Print:quiet = on");
 
