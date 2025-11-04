@@ -67,9 +67,11 @@ add_subdirectory(yaml-cpp EXCLUDE_FROM_ALL)
 link_libraries(yaml-cpp)
 
 add_executable(GenerateData ${CMAKE_SOURCE_DIR}/src/GenerateData.cpp)
+add_executable(CalculateAnalytic ${CMAKE_SOURCE_DIR}/src/CalculateAnalytic.cpp)
 
 if (CMAKE_VERSION LESS 4.0)
    string(STRIP ${CMAKE_SHARED_LINKER_FLAGS} CMAKE_EXE_LINKER_FLAGS)
    string(STRIP ${CMAKE_EXE_LINKER_FLAGS} CMAKE_EXE_LINKER_FLAGS)
    target_link_libraries(GenerateData PRIVATE ${CMAKE_EXE_LINKER_FLAGS})
+   target_link_libraries(CalculateAnalytic PRIVATE ${CMAKE_EXE_LINKER_FLAGS})
 endif()
