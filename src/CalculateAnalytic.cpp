@@ -113,7 +113,7 @@ double GetDSigmaDPTDY1DY2(const double pT, const double s,
 
 double GetX1(const double pT, const double sqrtSNN, const double y1, const double y2)
 {
-   return 2.*pT/sqrtSNN*exp(-1./2.*(y1 - y2))*cosh((y1 - y2)/2.);
+   return 2.*pT/sqrtSNN*exp((y1 + y2)/2.)*cosh((y1 - y2)/2.);
 }
 
 double GetX2(const double pT, const double sqrtSNN, const double y1, const double y2)
