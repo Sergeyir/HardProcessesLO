@@ -43,7 +43,7 @@ int main(int argc, char **argv)
    const std::string pdfSet = inputFileContents["pdfset"].as<std::string>();
    const double pTHatMin = inputFileContents["pthatmin"].as<double>();
    const double absMaxY = inputFileContents["abs_max_y"].as<double>();
-   const double sNN = inputFileContents["energy"].as<double>();
+   const double sqrtSNN = inputFileContents["energy"].as<double>();
 
    pdf = LHAPDF::mkPDF(pdfSet);
    rnd.SetSeed(GetRandomSeed());
@@ -55,12 +55,13 @@ int main(int argc, char **argv)
    for (int i = 1; i <= distrDSigmaDPT.GetXaxis()->GetNbins(); i++)
    {
       double err;
-      distrDSigmaDPT.SetBinContent(i, GetDSigmaDPT(distrDSigmaDPT.GetXaxis()->GetBinCenter(i), 
-                                   sqrt(sNN), absMaxY, err));
+      distrDSigmaDPT.SetBinContent(i, GetDSigmaDPT(distrDSigmaDPT.GetXaxis()->GetBinCenter(i), sqrtSNN, absMaxY, err));
       distrDSigmaDPT.SetBinError(i, err);
    }
 
    distrDSigmaDPT.Write();
+
+   std::cout << distrDSigmaDPT.Integral() << std::endl;
 
    outputFile.Close();
 
@@ -101,9 +102,10 @@ double GetDSigmaDPTDY1DY2(const double pT, const double s,
    {
       for (int id2 = -5; id2 <= 5; id2++)
       {
-         // 1e9 converts mb into pb
-         result += 8.*M_PI*pT*pdf->xfxQ2(id1, x1, pT*pT)*pdf->xfxQ2(id2, x2, pT*pT)*
-                   GetDSigmaDOmega(id1, id2, pT, s, y1 - y2)/s*1e9;
+         // to do : determine measurement units for the following expression
+         result += 8.*M_PI*pT*pdf->xfxQ2(id1, x1, pT*pT)*
+                   pdf->xfxQ2(id2, x2, pT*pT)*
+                   GetDSigmaDOmega(id1, id2, pT, s, y1 - y2)/s;
       }
    }
    return result;
@@ -142,7 +144,7 @@ double GetDSigmaDPT(const double pT, const double sqrtSNN, const double absYMax,
       // to do: add a check that tests whether x1 and x2 are within kinematicaly possible range
 
       // calculating \sqrt{S'_{NN}}, i.e. the center of mass energy of 2 partons
-      const double s = sqrtSNN*x1*x2;
+      const double s = sqrtSNN*sqrtSNN*x1*x2;
 
       result += GetDSigmaDPTDY1DY2(pT, s, y1, y2, x1, x2);
       normalization++;
