@@ -74,7 +74,9 @@ git pull --recurse-submodules
 
 # How to use
 
-## C++
+## Generating with pythia8
+
+### C++
 
 Run the compiled executable to generate 1000 events with pythia using pythia specification from file input/pp7TeV.yaml. You can change input file and number of events if needed
 
@@ -82,12 +84,22 @@ Run the compiled executable to generate 1000 events with pythia using pythia spe
 bin/GenerateData input/pp7TeV.yaml 1000
 ```
 
-## python
+### python
 
 Run the python script to generate 1000 events with pythia using pythia specification from file input/pp7TeV.yaml. You can change input file and number of events if needed
 
 ```sh
 python scripts/generate_data.py -i input/pp7TeV.yaml -n 1000
+```
+
+## Running analytic calculations
+
+### C++
+
+Run the compiled executable to generate 1000 events with pythia using pythia specification from file input/pp7TeV.yaml. You can change input file and number of events if needed
+
+```sh
+bin/GenerateData input/pp7TeV.yaml 1000
 ```
 
 # Implementing your changes
