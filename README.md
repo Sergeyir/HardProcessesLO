@@ -78,7 +78,7 @@ git pull --recurse-submodules
 
 ### C++
 
-Run the compiled executable to generate 1000 events with pythia using pythia specification from file input/pp7TeV.yaml. You can change input file and number of events if needed
+Run the compiled executable of a simple example to generate 1000 events with pythia using pythia specification from file input/pp7TeV.yaml. You can change input file and number of events if needed
 
 ```sh
 bin/GenerateData input/pp7TeV.yaml 1000
@@ -86,7 +86,7 @@ bin/GenerateData input/pp7TeV.yaml 1000
 
 ### python
 
-Run the python script to generate 1000 events with pythia using pythia specification from file input/pp7TeV.yaml. You can change input file and number of events if needed
+Run the python script showing simple example to generate 1000 events with pythia using pythia specification from file input/pp7TeV.yaml. You can change input file and number of events if needed
 
 ```sh
 python scripts/generate_data.py -i input/pp7TeV.yaml -n 1000
@@ -94,13 +94,23 @@ python scripts/generate_data.py -i input/pp7TeV.yaml -n 1000
 
 ## Running analytic calculations
 
-### C++
+Both C++ and python code are **incompleted examples**. The code was intended for the students to finish so look for keyphrase "to do" in the comments of the code. Until all formulas are corrected/completed the compiled running the executable/script will not give the correct result.
 
-Run the compiled executable to generate 1000 events with pythia using pythia specification from file input/pp7TeV.yaml. You can change input file and number of events if needed
+<details>
+    <summary>C++</summary>
+    Check the code include/CalculateAnalytic.hpp and src/CalculateAnalytic.cpp and finish it. After adding updates, compile the code with make and you can run it with
 
-```sh
-bin/GenerateData input/pp7TeV.yaml 1000
-```
+    ```sh
+    bin/CalculateAnalytic input/pp7TeV.yaml 100
+    ```
+
+    Where the first argument provides the name of the file with all important specifications, and the second one provides the number of integration steps for Monte Carlo integration.
+<details>
+
+<details>
+    <summary>python</summary>
+    Will be added soon
+<details>
 
 # Implementing your changes
 
