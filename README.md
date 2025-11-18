@@ -81,7 +81,7 @@ In the current repository example NNPDF31_lo_as_0118 pdf set is used, so install
 
 ## Generating with pythia8
 
-Both python and pythi8 show examples on calculation of single jet multiplicities (direct calculation and fastjet reconstruction) from which $\frac{d \sigma}{dp_T}$ can be obtained. Similarly you can find the way to calculate the needed multiplicity for $\frac{d \sigma}{d \Delta y}$.
+Both python and pythi8 show examples on calculation of single jet multiplicities (direct calculation and fastjet reconstruction) from which $d \sigma/dp_T$ can be obtained. Similarly you can find the way to calculate the needed multiplicity for $d \sigma/d \Delta y$.
 
 <details>
 <summary>C++</summary>
@@ -106,7 +106,7 @@ python scripts/generate_data.py -i input/pp7TeV.yaml -n 1000
 
 ## Running analytic calculations
 
-Both C++ and python code are **incompleted examples** that only show how to calculate $\frac{d \sigma}{dp_T}$. The code was intended for the students to finish so look for keyphrase "to do" in the comments of the code. Until all formulas are corrected/completed the compiled running the executable/script will not give the correct result.
+Both C++ and python code are **incompleted examples** that only show how to calculate $d \sigma/dp_T$. The code was intended for the students to finish so look for keyphrase "to do" in the comments of the code. Until all formulas are corrected/completed the compiled running the executable/script will not give the correct result.
 
 <details>
 <summary>C++</summary>
