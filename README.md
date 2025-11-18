@@ -97,17 +97,19 @@ python scripts/generate_data.py -i input/pp7TeV.yaml -n 1000
 Both C++ and python code are **incompleted examples**. The code was intended for the students to finish so look for keyphrase "to do" in the comments of the code. Until all formulas are corrected/completed the compiled running the executable/script will not give the correct result.
 
 <details>
-    <summary>C++</summary>
-    Check the code include/CalculateAnalytic.hpp and src/CalculateAnalytic.cpp and finish it. After adding updates, compile the code with make and you can run it with
-    ```sh
-    bin/CalculateAnalytic input/pp7TeV.yaml 100
-    ```
-    Where the first argument provides the name of the file with all important specifications, and the second one provides the number of integration steps for Monte Carlo integration.
+<summary>C++</summary>
+Check the code include/CalculateAnalytic.hpp and src/CalculateAnalytic.cpp and finish it. After adding updates, compile the code with make and you can run it with
+
+```sh
+bin/CalculateAnalytic input/pp7TeV.yaml 100
+```
+
+Where the first argument provides the name of the file with all important specifications, and the second one provides the number of integration steps for Monte Carlo integration.
 </details>
 
 <details>
-    <summary>python</summary>
-    Will be added soon
+<summary>python</summary>
+Will be added soon
 </details>
 
 # Implementing your changes
