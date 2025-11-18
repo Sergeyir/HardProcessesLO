@@ -105,12 +105,12 @@ Both C++ and python code are **incompleted examples**. The code was intended for
     ```
 
     Where the first argument provides the name of the file with all important specifications, and the second one provides the number of integration steps for Monte Carlo integration.
-<details>
+</details>
 
 <details>
     <summary>python</summary>
     Will be added soon
-<details>
+</details>
 
 # Implementing your changes
 
