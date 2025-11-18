@@ -76,15 +76,20 @@ git pull --recurse-submodules
 
 ## Generating with pythia8
 
-### C++
+Both python and pythi8 show examples on calculation of single jet multiplicities (direct calculation and fastjet reconstruction) from which $\frac{d \sigma}{dp_T}$ can be obtained. Similarly you can find the way to calculate the needed multiplicity for $\frac{d \sigma}{d \Delta y}$.
+
+<details>
+<summary>C++</summary>
 
 Run the compiled executable of a simple example to generate 1000 events with pythia using pythia specification from file input/pp7TeV.yaml. You can change input file and number of events if needed
 
 ```sh
 bin/GenerateData input/pp7TeV.yaml 1000
 ```
+</details>
 
-### python
+<details>
+<summary>python</summary>
 
 Run the python script showing simple example to generate 1000 events with pythia using pythia specification from file input/pp7TeV.yaml. You can change input file and number of events if needed
 
@@ -92,9 +97,11 @@ Run the python script showing simple example to generate 1000 events with pythia
 python scripts/generate_data.py -i input/pp7TeV.yaml -n 1000
 ```
 
+</details>
+
 ## Running analytic calculations
 
-Both C++ and python code are **incompleted examples**. The code was intended for the students to finish so look for keyphrase "to do" in the comments of the code. Until all formulas are corrected/completed the compiled running the executable/script will not give the correct result.
+Both C++ and python code are **incompleted examples** that only show how to calculate $\frac{d \sigma}{dp_T}$. The code was intended for the students to finish so look for keyphrase "to do" in the comments of the code. Until all formulas are corrected/completed the compiled running the executable/script will not give the correct result.
 
 <details>
 <summary>C++</summary>
