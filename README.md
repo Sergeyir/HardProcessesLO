@@ -99,11 +99,9 @@ Both C++ and python code are **incompleted examples**. The code was intended for
 <details>
     <summary>C++</summary>
     Check the code include/CalculateAnalytic.hpp and src/CalculateAnalytic.cpp and finish it. After adding updates, compile the code with make and you can run it with
-
     ```sh
     bin/CalculateAnalytic input/pp7TeV.yaml 100
     ```
-
     Where the first argument provides the name of the file with all important specifications, and the second one provides the number of integration steps for Monte Carlo integration.
 </details>
 
