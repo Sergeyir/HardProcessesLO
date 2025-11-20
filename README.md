@@ -74,6 +74,16 @@ lhapdf install name_of_pdf_set
 Or by installing it in .tar.gz format from https://www.lhapdf.org/pdfsets.html and extracting it into $LHAPDF_PATH/share/LHAPDF directory.
 
 In the current repository example NNPDF31_lo_as_0118 pdf set is used, so install it as well to test if everything works fine.
+</details>
+
+<details>
+<summary> Implementing your changes</summary>
+
+Since the project may be updated you may need to pull the changes. This way implementing your changes to the code may cause conflict in git version. To circumvent this you can create a branch of this repo or just copy the contents of this repo to your directory and remove CMake files and cache:
+
+```sh
+rm -r CMakeFiles cmake_install.cmake CMakeCache.txt
+```
 
 </details>
 
@@ -81,7 +91,7 @@ In the current repository example NNPDF31_lo_as_0118 pdf set is used, so install
 
 ## Generating with pythia8
 
-Both python and pythi8 show examples on calculation of single jet multiplicities (direct calculation and fastjet reconstruction) from which $d \sigma/dp_T$ can be obtained. Similarly you can find the way to calculate the needed multiplicity for $d \sigma/d \Delta y$.
+Both python and C++ show examples on calculation of single jet multiplicities (direct calculation and fastjet reconstruction) from which $d \sigma/dp_T$ can be obtained. Similarly you can find the way to calculate the needed multiplicity for $d \sigma/d \Delta y$.
 
 <details>
 <summary>C++</summary>
@@ -123,14 +133,6 @@ Where the first argument provides the name of the file with all important specif
 <summary>python</summary>
 Will be added soon
 </details>
-
-# Implementing your changes
-
-Since the project may be updated you may need to pull the changes. This way implementing your changes to the code may cause conflict in git version. To circumvent this you can create a branch of this repo or just copy the contents of this repo to your directory and remove CMake files and cache:
-
-```sh
-rm -r CMakeFiles cmake_install.cmake CMakeCache.txt
-```
 
 # Sources
 
