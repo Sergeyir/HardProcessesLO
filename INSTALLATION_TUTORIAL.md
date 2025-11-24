@@ -20,10 +20,10 @@ Then install ROOT6 via package manager (if available, [see here](https://root.ce
 
 ### Pre-compiled release
 
-If your option is the installation of pre-compiled release, after downloading place the .tar.gz file in $PACKAGE_PATH. After heading in $PACKAGE_PATH run to extract
+If your option is the installation of pre-compiled release, after downloading place the .tar.gz file in $PACKAGE_PATH. After heading in $PACKAGE_PATH substitute the "name_of_file.tar.gz" for your .tar.gz file name containing ROOT6 package and run
 
 ```sh
-tar -xvzf root*.tar.gz
+tar -xvzf "name_of_file.tar.gz"
 ```
 
 Now extracted files are located at $PACKAGE_PATH/root which you should export in your profile (usually ~/.bashrc or ~/.zshrc; or other) to add search option in CMake or for python3 support. To do this as well as add easily accessible root executable add the following lines to your profile
@@ -44,10 +44,14 @@ Alternatively, you can also compile ROOT6 yourself, however it will take quite a
 
 ## LHAPDF6
 
-Download the source code from [here](https://lhapdf.hepforge.org/downloads/). Place the .tar.gz file in $PACKAGE_PATH. After heading there run to extract files
+LHAPDF6 can be installed via some package managers (see "System package managers" [here](https://www.lhapdf.org/install.html)). If no option is available to you follow instructions below.
+
+
+Download the source code from [here](https://lhapdf.hepforge.org/downloads/). Place the downloaded .tar.gz file in $PACKAGE_PATH. After heading there substitute the "name_of_file.tar.gz" for your .tar.gz file name containing LHAPDF6 package and run
+
 
 ```sh
-tar -xvzf LHAPDF-6*.tar.gz
+tar -xvzf "name_of_file.tar.gz"
 ```
 
 Then head into LHAPDF-6.X.X directory (6.X.X is the version you downloaded, replace X for your version). First run to configure
@@ -84,10 +88,13 @@ export PYTHONPATH=$LHAPDF6_PATH/lib/python3.XX/dist-packages/lhapdf:$PYTHONPATH
 
 ## PYTHIA8
 
-Download the source code from [here](https://pythia.org/). Place the .tar.gz file in $PACKAGE_PATH. After heading there run to extract files
+PYTHIA8 can be installed via some package managers (such as pacman, dnf, portage, etc.). If your system package manager doesn't have pythia8 repository you can follow instructions below.
+
+
+Download the source code from [here](https://pythia.org/). Place the downloaded .tgz file in $PACKAGE_PATH. After heading there substitute the "name_of_file.tgz" for your .tgz file name containing PYTHIA8 package and run
 
 ```sh
-tar -xvzf pythia8*.tgz
+tar -xvzf "name_of_file.tgz"
 ```
 
 Then head into pythia8XXX directory (8XXX is the version you downloaded, replace X for your version). First run to configure (you might need to change /bin/python-config to /bin/python3-config)
@@ -111,6 +118,8 @@ export LD_LIBRARY_PATH=$PYTHIA8_PATH/lib:$LD_LIBRARY_PATH
 ```
 
 ## FASTJET3
+
+FASTJET3 can be installed via some package managers (such as pacman, dnf, portage, etc.). If your system package manager doesn't have lhapdf repository you can follow instructions below.
 
 Install [swig](https://www.swig.org/) package first (it can be installed with package manager). After, download the source code from [here](https://fastjet.fr/). Place the .tar.gz file in $PACKAGE_PATH. After heading there run to extract files
 
