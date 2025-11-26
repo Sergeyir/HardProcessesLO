@@ -52,10 +52,16 @@ int main(int argc, char **argv)
 
    TH1D distrDSigmaDPT("dsigma/dpT", "d\\sigma/dp_{T}", 1000 + pTHatMin, 0., 100. + pTHatMin);
 
-   for (int i = 1; i <= distrDSigmaDPT.GetXaxis()->GetNbins(); i++)
+   const int nBinsX = distrDSigmaDPT.GetXaxis()->GetNbins();
+   for (int i = 1; i <= nBinsX; i++)
    {
+      // the line below prints progress in percents
+      std::cout << static_cast<double>(i)/static_cast<double>(nBinsX)*100. << "%\r";
+
       double err;
-      distrDSigmaDPT.SetBinContent(i, GetDSigmaDPT(distrDSigmaDPT.GetXaxis()->GetBinCenter(i), sqrtSNN, absMaxY, err));
+      const double dSigmaDPT = GetDSigmaDPT(distrDSigmaDPT.GetXaxis()->GetBinCenter(i), sqrtSNN, absMaxY, err);
+
+      distrDSigmaDPT.SetBinContent(i, dSigmaDPT);
       distrDSigmaDPT.SetBinError(i, err);
    }
 
