@@ -88,7 +88,7 @@ export PYTHONPATH=$LHAPDF6_PATH/lib/python3.XX/dist-packages/lhapdf:$PYTHONPATH
 
 ## PYTHIA8
 
-PYTHIA8 can be installed via some package managers (such as pacman, dnf, portage, etc.). If your system package manager doesn't have pythia8 repository you can follow instructions below.
+PYTHIA8 can be installed via some package managers (such as pacman, dnf, portage, etc.). If your system package manager doesn't have pythia8 repository you can follow instructions below (additionally python-pythia8 may be required if available or similar package).
 
 
 Download the source code from [here](https://pythia.org/). Place the downloaded .tgz file in $PACKAGE_PATH. After heading there substitute the "name_of_file.tgz" for your .tgz file name containing PYTHIA8 package and run
