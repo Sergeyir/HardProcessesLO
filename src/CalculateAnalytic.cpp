@@ -118,7 +118,7 @@ double GetX1(const double pT, const double sqrtSNN, const double y1, const doubl
 
 double GetX2(const double pT, const double sqrtSNN, const double y1, const double y2)
 {
-   // to do: fill in the formula for x2 in the current function
+   // To do: fill in the formula for x2 in the current function
    return 0.5;
 }
 
@@ -146,6 +146,7 @@ double GetDSigmaDPT(const double pT, const double sqrtSNN, const double absYMax,
       // calculating \sqrt{S'_{NN}}, i.e. the center of mass energy of 2 partons
       const double s = sqrtSNN*sqrtSNN*x1*x2;
 
+      // only do the following calculations after all cuts
       result += GetDSigmaDPTDY1DY2(pT, s, y1, y2, x1, x2);
       normalization++;
    }
