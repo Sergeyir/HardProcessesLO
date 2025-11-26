@@ -131,7 +131,13 @@ Where the first argument provides the name of the file with all important specif
 
 <details>
 <summary>python</summary>
-Will be added soon
+Check the code srcipts/calculate_analytic.py and finish it. After adding updates you can run it with
+
+```sh
+python scripts/calcylate_analytic.py -i input/pp7TeV.yaml -n 100
+```
+
+Where the "-i" argument provides the name of the file with all important specifications, and "-n" provides the number of integration steps for Monte Carlo integration.
 </details>
 
 # Sources
