@@ -130,7 +130,9 @@ def calculate_analytic(input_file_name : str) -> int:
     distr_dsigma_dpt = ROOT.TH1D("Hard process outgoing parton pT", "p_{T}", nbins, x_min, x_max)
 
     for i in range(1, nbins + 1):
+        # the line below prints progress in percents
         print(round(float(i)/float(nbins)*100., 2), "%\r", end='', flush=True)
+        # calculating the value and error of d sigma / dpT
         val, err = get_dsigma_dpt(distr_dsigma_dpt.GetXaxis().GetBinCenter(i), sqrtSNN, absMaxY)
         distr_dsigma_dpt.SetBinContent(i, val)
         distr_dsigma_dpt.SetBinError(i, err)
