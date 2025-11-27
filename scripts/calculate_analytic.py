@@ -58,7 +58,7 @@ def get_dsigma_dpt_dy1_dy2(pT: float, s: float, y1: float, y2: float, x1: float,
             """
             To do: determine measurement units for the following expression
             """
-            result += 8.0 * math.pi * pT * fx1 * fx2 * dsigma_domega / s * 1e9
+            result += 8.0 * math.pi * pT * fx1 * fx2 * dsigma_domega / s
     return result
 
 
@@ -91,8 +91,9 @@ def get_dsigma_dpt(pT: float, sqrtSNN: float, absYMax: float) -> Tuple[float, fl
         x1 = get_x1(pT, sqrtSNN, y1, y2)
         x2 = get_x2(pT, sqrtSNN, y1, y2)
 
-        if x1 >= 1.0 or x2 >= 1.0:
-            continue
+        """
+        To do: introduce a check that tests if x1 and x2 have proper values
+        """
 
         s = (sqrtSNN * sqrtSNN) * x1 * x2
 
@@ -130,9 +131,7 @@ def calculate_analytic(input_file_name : str) -> int:
     distr_dsigma_dpt = ROOT.TH1D("Hard process outgoing parton pT", "p_{T}", nbins, x_min, x_max)
 
     for i in range(1, nbins + 1):
-        # the line below prints progress in percents
         print(round(float(i)/float(nbins)*100., 2), "%\r", end='', flush=True)
-        # calculating the value and error of d sigma / dpT
         val, err = get_dsigma_dpt(distr_dsigma_dpt.GetXaxis().GetBinCenter(i), sqrtSNN, absMaxY)
         distr_dsigma_dpt.SetBinContent(i, val)
         distr_dsigma_dpt.SetBinError(i, err)
@@ -143,8 +142,8 @@ def calculate_analytic(input_file_name : str) -> int:
 
     return 0
 
-
-if __name__ == "__main__":
+def main() :
+    global number_of_integration_steps
     # parsing input arguments
     parser = argparse.ArgumentParser()
     parser.add_argument("-i", "--input", type=str)
@@ -164,3 +163,6 @@ if __name__ == "__main__":
         sys(exit(1))
 
     sys.exit(calculate_analytic(input_file_name))
+
+if __name__ == "__main__":
+    main()
