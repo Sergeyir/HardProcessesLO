@@ -1,6 +1,19 @@
+# Table of contents
+
+- [Overview](#overview)
+- [Requirements](#requirements)
+- [Analytic calculation](#analytic-calculation)
+- [Installation](#installation)
+- [How to use](#how-to-use)
+    - [Generating with pythia8](#generating-with-pythia8)
+    - [Running analytic calculation](#running-analytic-calculation)
+- [Using this project for teaching](#using-this-project-for-teaching)
+- [Sources](#sources)
+
 # Overview
 
-This is a simple projects that helps to study leading order (LO) hard processes in p+p collisions at high energy. The goal of this project is a numerical calculation of $d \sigma/dp_{T}$ and $d \sigma / d \Delta y$ of partons that originate from LO hard processes. The calculation is performed in 3 different ways: 
+This is a simple projects that helps students in particle physics to study hard processes in p+p collisions at high energy and to learn high energy physics software. The goal is for the students to perform a numerical calculation of $d \sigma/dp_{T}$ and $d \sigma / d \Delta y$ of partons that originate from LO hard processes. The calculation is performed in 3 different ways: 
+
 - **Analytic**: integration of the factorization formula of LO hard p+p interaction
 - **PYTHIA8**: acquisition of cross section directly from PYTHIA8 event data
 - **PYTHIA8+FASTJET3**: acquisition of cross section by reconstruction of jets with FASTJET3 from PYTHIA8 final state particles
@@ -116,7 +129,7 @@ python scripts/generate_data.py -i input/pp7TeV.yaml -n 1000
 
 ## Running analytic calculations
 
-Both C++ and python code are **incompleted examples** that only show how to calculate $d \sigma/dp_T$. The code was intended for the students to finish so look for keyphrase "to do" in the comments of the code. Until all formulas are corrected/completed the compiled running the executable/script will not give the correct result.
+Both C++ and python code are **incomplete examples** that only show how to calculate $d \sigma/dp_T$. The code was intended for the students to finish so look for keyphrase "to do" in the comments of the code. Until all formulas are corrected/completed the compiled running the executable/script will not give the correct result.
 
 <details>
 <summary>C++</summary>
@@ -139,6 +152,12 @@ python scripts/calcylate_analytic.py -i input/pp7TeV.yaml -n 100
 
 Where the "-i" argument provides the name of the file with all important specifications, and "-n" provides the number of integration steps for Monte Carlo integration.
 </details>
+
+# Using this project for teaching
+
+This is an open source public project which anyone can use. If you are teaching students programming/software in particle physics and would like to incorporate this project or a part of it, you can reach me at [antsupov_0124@gmail.com](mailto:antsupov_0124@gmail.com) so that I can send you a complete version of this repository. Complete version contains fully finished code which can be used to check the results obtained by students. Please do send the request from you university email address while stating the position, department, and university, so it would be easier for me to confirm your status.
+
+Also this project by itself is not enough for someone to learn the underlying physics, programming, and HEP software. Supervision and assistance is required for students to have a fullest grasp of the subject and experience development.
 
 # Sources
 
