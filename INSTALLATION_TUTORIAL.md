@@ -1,3 +1,11 @@
+# Table of contents
+
+- [ROOT6](#root6)
+- [LHAPDF6](#lhapdf6)
+- [PYTHIA8](#pythia8)
+- [FASTJET3](#fastjet3)
+- [How to check the installation](#how-to-check-the-installation)
+
 # Installation tutorial
 
 For simplicity we will consider arbitrary path $PACKAGE_PATH for the directory path where we will place all packages required for this project. This consideration is not a requirement and you can configure the paths yourself the way it is convenient for you. 
