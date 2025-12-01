@@ -50,7 +50,7 @@ def get_dsigma_dpt_dy1_dy2(pT: float, s: float, y1: float, y2: float, x1: float,
     # Sum over all combinations id1=-5..5, id2=-5..5
     result = 0.0
     for id1 in range(-5, 6):
-        for id2 in range(-5, 6):
+        for id2 in range(id1, 6):
             # LHAPDF xfxQ2 takes (id, x, Q2)
             fx1 = pdf.xfxQ2(id1, x1, pT * pT)
             fx2 = pdf.xfxQ2(id2, x2, pT * pT)

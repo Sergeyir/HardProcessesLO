@@ -106,7 +106,7 @@ double GetDSigmaDPTDY1DY2(const double pT, const double s,
    // iterating over all posible combinations
    for (int id1 = -5; id1 <= 5; id1++)
    {
-      for (int id2 = -5; id2 <= 5; id2++)
+      for (int id2 = id1; id2 <= 5; id2++)
       {
          // to do : determine measurement units for the following expression
          result += 8.*M_PI*pT*pdf->xfxQ2(id1, x1, pT*pT)*
