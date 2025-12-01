@@ -50,7 +50,7 @@ int main(int argc, char **argv)
 
    TFile outputFile("output/analytic.root", "RECREATE");
 
-   TH1D distrDSigmaDPT("dsigma/dpT", "d\\sigma/dp_{T}", 1000 + pTHatMin, 0., 100. + pTHatMin);
+   TH1D distrDSigmaDPT("dsigma/dpT", "d#sigma/dp_{T}", 1000 + pTHatMin, 0., 100. + pTHatMin);
 
    const int nBinsX = distrDSigmaDPT.GetXaxis()->GetNbins();
    for (int i = 1; i <= nBinsX; i++)

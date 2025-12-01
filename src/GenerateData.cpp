@@ -79,12 +79,14 @@ int main(int argc, char **argv)
    // if you have multiple TFile files you write in in yor program use 
    // TFile::cd() to point root to the file you need
 
+   const int nXBins = 1000 + static_cast<int>(pTHatMin);
+   // kinematically pT can go to much higher values but for this example statistical significant result can be obtained only for this range within reasonable processing time
+   const double pTMax = 100. + pTHatMin;
    // more info on TH1D you can find on https://root.cern.ch/doc/master/classTH1.html
    // histogram in which pT of partons outgoing from hard processes will be written
-   TH1D distrHardProcessPartonsPT("Hard process outgoing parton pT", "p_{T}", 
-                                  1000 + static_cast<int>(pTHatMin), 0., 100. + pTHatMin);
+   TH1D distrHardProcessPartonsPT("Hard process outgoing parton pT", "d#sigma/dp_{T}", nXBins, 0., pTMax);
    // histogram in which reconstructed jets pT will be written
-   TH1D distrJetsPT("Jet pT", "p_{T}", 1000 + static_cast<int>(pTHatMin), 0., 100. + pTHatMin);
+   TH1D distrJetsPT("Jet pT", "d#sigma/dp_{T}", nXBins, 0., pTMax);
 
    // you can read more about fastjet and its usage on 
    // https://indico.cern.ch/event/264054/contributions/592237/attachments/467910/648313/fastjet-doc-3.0.3.pdf
@@ -125,8 +127,8 @@ int main(int argc, char **argv)
             // in experiments jets usually only consist of charged (+-1q) final state particles
             // neutral particles need to be excluded 
             // (although photons and neutral hadrons can be used and sometimes are included)
-            if (abs(pythia.event[j].charge()) != 1) continue;
-            // Exercise: Determine which particles are left in the current case
+            // if (abs(pythia.event[j].charge()) != 1) continue;
+            // but for this work all particles will be included
 
             // adding fastjet::PseudoJet entry to the particles vector
             particles.emplace_back(pythia.event[j].px(), // x component of momentum [GeV/c]
@@ -143,6 +145,7 @@ int main(int argc, char **argv)
             if (!pythia.event[j].isParton()) continue;
             // filling the histogram with weight eventWeight 
             // (i.e. adding entry with weight w = eventWeight)
+            // To do : add a check that tests whether partons are within the needed rapidity range
             distrHardProcessPartonsPT.Fill(pythia.event[j].pT(), eventWeight);
          }
       }
@@ -155,6 +158,7 @@ int main(int argc, char **argv)
       // iterating over reconstructed jets
       for (unsigned int j = 0; j < inclusiveJets.size(); j++)
       {
+         // To do : add a check that tests whether jets are within the needed rapidity range
          distrJetsPT.Fill(inclusiveJets[j].pt(), eventWeight);
       }
    }
