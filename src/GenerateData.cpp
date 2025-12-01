@@ -84,9 +84,9 @@ int main(int argc, char **argv)
    const double pTMax = 100. + pTHatMin;
    // more info on TH1D you can find on https://root.cern.ch/doc/master/classTH1.html
    // histogram in which pT of partons outgoing from hard processes will be written
-   TH1D distrHardProcessPartonsPT("Hard process outgoing parton pT", "d#sigma/dp_{T}", nXBins, 0., pTMax);
+   TH1D distrHardProcessPartonsPT("Hard process outgoing parton pT", "N(p_{T})", nXBins, 0., pTMax);
    // histogram in which reconstructed jets pT will be written
-   TH1D distrJetsPT("Jet pT", "d#sigma/dp_{T}", nXBins, 0., pTMax);
+   TH1D distrJetsPT("Jet pT", "N(p_{T})", nXBins, 0., pTMax);
 
    // you can read more about fastjet and its usage on 
    // https://indico.cern.ch/event/264054/contributions/592237/attachments/467910/648313/fastjet-doc-3.0.3.pdf
