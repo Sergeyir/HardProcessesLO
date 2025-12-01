@@ -52,8 +52,8 @@ def get_dsigma_dpt_dy1_dy2(pT: float, s: float, y1: float, y2: float, x1: float,
     for id1 in range(-5, 6):
         for id2 in range(id1, 6):
             # LHAPDF xfxQ2 takes (id, x, Q2)
-            fx1 = pdf.xfxQ2(id1, x1, pT * pT)
-            fx2 = pdf.xfxQ2(id2, x2, pT * pT)
+            fx1 = pdf.xfxQ2((21, id1)[id1 == 0], x1, pT * pT)
+            fx2 = pdf.xfxQ2((21, id2)[id2 == 0], x2, pT * pT)
             dsigma_domega = get_dsigma_domega(id1, id2, pT, s, y1 - y2)
             """
             To do: determine measurement units for the following expression

@@ -109,8 +109,8 @@ double GetDSigmaDPTDY1DY2(const double pT, const double s,
       for (int id2 = id1; id2 <= 5; id2++)
       {
          // to do : determine measurement units for the following expression
-         result += 8.*M_PI*pT*pdf->xfxQ2(id1, x1, pT*pT)*
-                   pdf->xfxQ2(id2, x2, pT*pT)*
+         result += 8.*M_PI*pT*pdf->xfxQ2(((id1 == 0) ? 21 : id1), x1, pT*pT)*
+                   pdf->xfxQ2(((id2 == 0) ? 21 : id2), x2, pT*pT)*
                    GetDSigmaDOmega(id1, id2, pT, s, y1 - y2)/s;
       }
    }
