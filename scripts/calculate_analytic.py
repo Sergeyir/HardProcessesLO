@@ -128,7 +128,7 @@ def calculate_analytic(input_file_name : str) -> int:
     nbins = int(1000 + pTHatMin)
     x_min = 0.0
     x_max = 100.0 + pTHatMin
-    distr_dsigma_dpt = ROOT.TH1D("dsigma/dpT", "d#sigma/dp_{T}", nbins, x_min, x_max)
+    distr_dsigma_dpt = ROOT.TH1D("dsigmadpT", "d#sigma/dp_{T}", nbins, x_min, x_max)
 
     for i in range(1, nbins + 1):
         print(round(float(i)/float(nbins)*100., 2), "%\r", end='', flush=True)
