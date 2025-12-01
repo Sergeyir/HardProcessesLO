@@ -66,10 +66,10 @@ def generate_data(input_file_name : str, n_events : int) -> int :
     nbins = 1000 + int(pTHatMin)
     # more info on TH1D you can find on https://root.cern.ch/doc/master/classTH1.html
     # histogram in which pT of partons outgoing from hard processes will be written
-    distrHardProcessPartonsPT = ROOT.TH1D("Hard process outgoing parton pT", "p_{T}", 
+    distrHardProcessPartonsPT = ROOT.TH1D("Hard process outgoing parton pT", "N(p_{T})", 
                                           nbins, 0.0, 100.0 + pTHatMin)
     # histogram in which reconstructed jets pT will be written
-    distrJetsPT = ROOT.TH1D("Jet pT", "p_{T}", nbins, 0.0, 100.0 + pTHatMin)
+    distrJetsPT = ROOT.TH1D("Jet pT", "N(p_{T})", nbins, 0.0, 100.0 + pTHatMin)
 
     # you can read more about fastjet and its usage on 
     # https://indico.cern.ch/event/264054/contributions/592237/attachments/467910/648313/fastjet-doc-3.0.3.pdf
