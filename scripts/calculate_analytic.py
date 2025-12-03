@@ -84,10 +84,6 @@ def get_dsigma_dpt(pT: float, sqrtSNN: float, absYMax: float) -> Tuple[float, fl
         y1 = rng.uniform(-absYMax, absYMax)
         y2 = rng.uniform(-absYMax, absYMax)
 
-        """
-        To do: introduce a check that tests if pT exceeds kinematicaly allowed maximum value
-        """
-
         x1 = get_x1(pT, sqrtSNN, y1, y2)
         x2 = get_x2(pT, sqrtSNN, y1, y2)
 

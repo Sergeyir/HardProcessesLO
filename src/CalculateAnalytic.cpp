@@ -141,8 +141,6 @@ double GetDSigmaDPT(const double pT, const double sqrtSNN, const double absYMax,
       const double y1 = rnd.Uniform(-absYMax, absYMax);
       const double y2 = rnd.Uniform(-absYMax, absYMax);
 
-      // to do: introduce a check that tests if pT exceeds kinematicaly allowed maximum value
-
       // calculating x1 and x2
       const double x1 = GetX1(pT, sqrtSNN, y1, y2);
       const double x2 = GetX2(pT, sqrtSNN, y1, y2);
