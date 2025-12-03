@@ -147,7 +147,7 @@ double GetDSigmaDPT(const double pT, const double sqrtSNN, const double absYMax,
 
       // to do: add a check that tests whether x1 and x2 are within kinematicaly possible range
 
-      // calculating \sqrt{S'_{NN}}, i.e. the center of mass energy of 2 partons
+      // calculating \sqrt{\hat{s}}, i.e. the center of mass energy of 2 partons
       const double s = sqrtSNN*sqrtSNN*x1*x2;
 
       // only do the following calculations after all cuts
