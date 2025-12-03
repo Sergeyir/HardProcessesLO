@@ -32,7 +32,7 @@ ROOT6, LHAPDF6, PYTHIA8, and FASTJET3 have to be compiled with python3 for the p
 
 # Analytic calculation
 
-Using the factorization formula for $d \sigma / dy_{1} dy_{2} dp^2_{T}$ for LO hard $p+p$ process from [2](#sources) (Eq.51.42), one can obtain
+Using the factorization formula for $d \sigma / dy_{1} dy_{2} dp^2_{T}$ for LO hard $p+p$ process from [2](#sources) (Eq.51.42) and considering quarks massless, one can obtain
 
 ```math
 \frac{d \sigma}{dp^2_T dy_1 dy_2} = \frac{8 \pi p_T}{\hat{s}} \sum_{ijkl} x_{1} f_{i}(x_{1}, \mu_F^2) x_{2} f_{j}(x_{2}, \mu_F^2) \left[ \frac{d \sigma_{ij \rightarrow kl}}{d \Omega} (\hat{s}, \hat{t}, \hat{u}) + \frac{d \sigma_{ij \rightarrow kl}}{d \Omega} (\hat{s}, \hat{u}, \hat{t}) \right]
