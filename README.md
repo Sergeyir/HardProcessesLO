@@ -155,7 +155,7 @@ Where the "-i" argument provides the name of the file with all important specifi
 
 # Using this project for teaching
 
-This is an open source public project which anyone can use. If you are teaching students programming/software in particle physics and would like to incorporate this project or a part of it, you can reach me at [antsupov_0124@gmail.com](mailto:antsupov_0124@gmail.com) so that I can send you a complete version of this repository. Complete version contains fully finished code which can be used to check the results obtained by students. Please do send the request from you university email address while stating the position, department, and university, so it would be easier for me to confirm your status.
+This is an open source public project which anyone can use. If you are teaching students programming/software in particle physics and would like to incorporate this project or a part of it, you can reach me at [antsupov0124@gmail.com](mailto:antsupov0124@gmail.com) so that I can send you a complete version of this repository. Complete version contains fully finished code which can be used to check the results obtained by students. Please do send the request from you university email address while stating the position, department, and university, so it would be easier for me to confirm your status.
 
 Also this project by itself is not enough for someone to learn the underlying physics, programming, and HEP software. Supervision and assistance is required for students to have a fullest grasp of the subject and experience development.
 
