@@ -112,6 +112,7 @@ double GetDSigmaDPTDY1DY2(const double pT, const double s,
          result += 8.*M_PI*pT*pdf->xfxQ2(((id1 == 0) ? 21 : id1), x1, pT*pT)*
                    pdf->xfxQ2(((id2 == 0) ? 21 : id2), x2, pT*pT)*
                    GetDSigmaDOmega(id1, id2, pT, s, y1 - y2)/s;
+         // to do: add an expression to calculate result for non-identical particles
       }
    }
    return result;
@@ -155,10 +156,27 @@ double GetDSigmaDPT(const double pT, const double sqrtSNN, const double absYMax,
       normalization++;
    }
 
-   // scaling integration sum by the number of succesfull integration steps
-   result /= static_cast<double>(normalization);
+   if (normalization == 0) 
+   {
+      err = 0.;
+      return 0.;
+   }
 
-   err = result/sqrt(normalization);
+   // without multiplying the result by area we just get average value; 
+   // area is needed to obtain from that average value an integral
+   // normalization/numberOfIntegrationSteps is needed since not all points
+   // correspond to the kinematicaly allowed area, but those that do were selected
+   // and counted by the normalization constant
+   const double area = 4*absYMax*absYMax*static_cast<double>(normalization)/
+                       static_cast<double>(numberOfIntegrationSteps);
+
+   // scaling integration sum by the number of succesfull 
+   // integration steps and by the integration area
+   result *= area/static_cast<double>(normalization);
+
+   // 2 is present since area and MC integration statistical uncertainty 
+   // produce the same uncertainty which has to be propagated between them
+   err = result/sqrt(2.*normalization);
 
    return result;
 }

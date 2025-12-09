@@ -59,6 +59,9 @@ def get_dsigma_dpt_dy1_dy2(pT: float, s: float, y1: float, y2: float, x1: float,
             To do: determine measurement units for the following expression
             """
             result += 8.0 * math.pi * pT * fx1 * fx2 * dsigma_domega / s
+            """
+            To do: implement expression for the result for the case when particles are non-identical
+            """
     return result
 
 
@@ -97,8 +100,19 @@ def get_dsigma_dpt(pT: float, sqrtSNN: float, absYMax: float) -> Tuple[float, fl
         result += get_dsigma_dpt_dy1_dy2(pT, s, y1, y2, x1, x2)
         normalization += 1.
 
-    result /= normalization
-    err = result / math.sqrt(normalization)
+    # without multiplying the result by area we just get average value; 
+    # area is needed to obtain from that average value an integral
+    # normalization/number_of_integration_steps is needed since not all points
+    # correspond to the kinematicaly allowed area, but those that do were selected
+    # and counted by the normalization constant
+    area = 4.*absYMax*absYMax*float(normalization)/float(number_of_integration_steps)
+
+    # scaling integration sum by the number of succesfull integration steps 
+    # and by the integration area
+    result *= area/normalization
+    # 2 is present since area and MC integration statistical uncertainty 
+    # produce the same uncertainty which has to be propagated between them
+    err = result / math.sqrt(2.*normalization)
     return result, err
 
 
