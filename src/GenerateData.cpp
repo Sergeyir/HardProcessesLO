@@ -142,10 +142,10 @@ int main(int argc, char **argv)
             // (see status on https://pythia.org/latest-manual/ParticleProperties.html)
             if (pythia.event[j].status() != -23) continue;
             // non-partons particles (spectators, diquarks, etc.) must be removed
-            if (!pythia.event[j].isParton()) continue;
+            if (!pythia.event[j].isGluon() && !pythia.event[j].isQuark()) continue;
             // filling the histogram with weight eventWeight 
             // (i.e. adding entry with weight w = eventWeight)
-            // To do : add a check that tests whether partons are within the needed rapidity range
+            // To do : add a check that tests whether both outgoing partons are within the needed rapidity range
             distrHardProcessPartonsPT.Fill(pythia.event[j].pT(), eventWeight);
          }
       }

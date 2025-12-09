@@ -44,7 +44,7 @@ def generate_data(input_file_name : str, n_events : int) -> int :
     pythia.readString(f"PhaseSpace:pTHatMin = {pTHatMin}")
     # setting PDF set from LHAPDF6; pythia8 also has many predefined sets
     # (more info on https://pythia.org/latest-manual/PDFSelection.html)
-    pythia.readString(f"PDF:pSet = {pdfset}")
+    pythia.readString(f"PDF:pSet = LHAPDF6:{pdfset}")
     # pythia.readString("Print:quiet = on")
 
     # initializing pythia; this step pythia applies parameters we set earlier and 
@@ -124,8 +124,9 @@ def generate_data(input_file_name : str, n_events : int) -> int :
                 if part.status() != -23:
                     continue
                 # non-partons particles (spectators, diquarks, etc.) must be removed
-                if not part.isParton():
+                if not part.isGluon() and not part.isQuark():
                     continue
+                # to do: add a check that test whether both partons are in the required rapidity range
                 # filling the histogram with weight eventWeight 
                 # (i.e. adding entry with weight w = eventWeight)
                 distrHardProcessPartonsPT.Fill(part.pT(), eventWeight)
