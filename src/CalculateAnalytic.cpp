@@ -176,7 +176,7 @@ double GetDSigmaDPT(const double pT, const double sqrtSNN, const double absYMax,
 
    // 2 is present since area and MC integration statistical uncertainty 
    // produce the same uncertainty which has to be propagated between them
-   err = result/sqrt(2.*normalization);
+   err = result/sqrt(normalization/2.);
 
    return result;
 }

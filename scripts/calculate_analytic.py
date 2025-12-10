@@ -112,7 +112,7 @@ def get_dsigma_dpt(pT: float, sqrtSNN: float, absYMax: float) -> Tuple[float, fl
     result *= area/normalization
     # 2 is present since area and MC integration statistical uncertainty 
     # produce the same uncertainty which has to be propagated between them
-    err = result / math.sqrt(2.*normalization)
+    err = result / math.sqrt(normalization/2.)
     return result, err
 
 
