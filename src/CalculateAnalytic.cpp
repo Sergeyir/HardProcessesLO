@@ -153,6 +153,7 @@ double GetDSigmaDPT(const double pT, const double sqrtSNN, const double absYMax,
 
       // only do the following calculations after all cuts
       result += GetDSigmaDPTDY1DY2(pT, s, y1, y2, x1, x2);
+      // normalization constant is a sum of weights; for uniform distribution all weights are 1
       normalization++;
    }
 
@@ -180,6 +181,47 @@ double GetDSigmaDPT(const double pT, const double sqrtSNN, const double absYMax,
 
    return result;
 }
+
+double GetDSigmaDDeltaY(const double deltaY, const double sqrtSNN, const double absYMax, double &err)
+{
+   // This is just a functiont prototype The intended purpose of which is to show how to 
+   // randomly choose pT. If the pT is chosen from the uniform distribution the cross section
+   // values will jump to much from point to point due to significant contribution coming from
+   // low pT region (with finite integration calculation steps only few points on this range will be
+   // selected which results in some points having larger contribution from low pT that the other
+   // thus the "jumpiness" of a histogram points arises). 
+
+   double normalization = 0.;
+   double result = 0.;
+
+   for (long i = 0; i < numberOfIntegrationSteps; i++)
+   {
+      // To do : add correct formula for tau
+      // This is one way to achieve this: to distrubute pT in a way so that 
+      // there are many more points on low pT
+      const double tau = 1.;
+      const double pT = rnd.Exp(tau);
+      // In order for the TRandom to work correctly and fast tau needs to be defined so that
+      // \int_{pTHatMIn}^{pTMax} e^{-x/tau) dx = 1
+      // Where pTMax - maximum kinematicaly possible pT value
+      // Exponent is chosen since it resembles the form of d\Sigma/dpT. The closer the resemblance - 
+      // the better error estimation is performed for finite number of integration steps
+
+      // But since the distribution is non-uniform the normalization 
+      // needs to be explicitly calculated as sum of weights
+      normalization += exp(-pT/tau); // here exp(-pT/tau) is weight
+
+      // dummy value
+      result += 1e-6;
+   }
+
+   // To do: check for other sources of uncertainties and propagate 
+   // them with this error if you find any
+   err = result/sqrt(normalization);
+
+   return result/normalization;
+}
+
 
 unsigned int GetRandomSeed()
 {

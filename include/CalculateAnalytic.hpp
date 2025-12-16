@@ -78,7 +78,7 @@ double GetX1(const double pT, const double sqrtSNN, const double y1, const doubl
  * @param[out] x
  */
 double GetX2(const double pT, const double sqrtSNN, const double y1, const double y2);
-/* @brief Calculates d\sigma / dp_T for the given pT, \sqrt{s_{NN}} and rapidity range. Integration will be performed over [-absYMax, absYMax] range for both y1 and y2
+/* @brief Calculates d\sigma / dp_T for the given pT, \sqrt{s_{NN}} and rapidity range. Integration is be performed over [-absYMax, absYMax] range for both y1 and y2
  *
  * @param[in] pT transverse momentum [GeV/c]
  * @param[in] sqrtSNN square root of s_{NN} [GeV]
@@ -87,6 +87,15 @@ double GetX2(const double pT, const double sqrtSNN, const double y1, const doubl
  * @param[out] d\sigma / dp_T
  */
 double GetDSigmaDPT(const double pT, const double sqrtSNN, const double absYMax, double &err);
+/* @brief Calculates d\sigma / dp_\DeltaY for the given \Delta y, \sqrt{s_{NN}} and rapidity range. Integration is be performed over [-absYMax, absYMax] range for both y1 and y2; for pT integration is performed from pTHatMin to maximum kinematicaly possible pT value
+ *
+ * @param[in] deltaY rapidity difference y_1 - y_2
+ * @param[in] sqrtSNN square root of s_{NN} [GeV]
+ * @param[in] absYMax maximum absolute of a rapidity of a parton
+ * @param[in] err statistic uncertainty tied to limited number of integration steps
+ * @param[out] d\sigma / dp_T
+ */
+double GetDSigmaDPT(const double deltaY, const double sqrtSNN, const double absYMax, double &err);
 
 int main(int argc, char **argv);
 
