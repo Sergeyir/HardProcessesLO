@@ -214,6 +214,7 @@ double GetDSigmaDDeltaY(const double deltaY, const double sqrtSNN, const double 
       // dummy value
       result += 1e-6;
    }
+   // To do: add normalization by integration volume
 
    // To do: check for other sources of uncertainties and propagate 
    // them with this error if you find any
