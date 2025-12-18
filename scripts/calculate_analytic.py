@@ -148,7 +148,7 @@ def get_dsigma_d_deltay(delta_y: float, sqrtSNN: float, absYMax: float, pTHatMin
         But since the distribution is non-uniform the normalization 
         needs to be explicitly calculated as sum of weig
         """
-        normalization += math.exp(-(pT + pTHatMin)/tau) # here exp(-pT/tau) is weight
+        normalization += math.exp(-(pT - pTHatMin)/tau) # here exp(-pT/tau) is weight
 
         # dummy value
         result += 1e-6

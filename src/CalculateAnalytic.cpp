@@ -209,7 +209,7 @@ double GetDSigmaDDeltaY(const double deltaY, const double sqrtSNN, const double 
 
       // But since the distribution is non-uniform the normalization 
       // needs to be explicitly calculated as sum of weights
-      normalization += exp(-(pT + pTHatMin)/tau); // here exp(-pT/tau) is weight
+      normalization += exp(-(pT - pTHatMin)/tau); // here exp(-pT/tau) is weight
 
       // dummy value
       result += 1e-6;
