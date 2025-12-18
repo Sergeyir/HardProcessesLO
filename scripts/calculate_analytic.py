@@ -115,7 +115,7 @@ def get_dsigma_dpt(pT: float, sqrtSNN: float, absYMax: float) -> Tuple[float, fl
     err = result / math.sqrt(normalization/2.)
     return result, err
 
-def get_dsigma_d_deltay(delta_y: float, sqrtSNN: float, absYMax: float) -> Tuple[float, float]:
+def get_dsigma_d_deltay(delta_y: float, sqrtSNN: float, absYMax: float, pTHatMin: float) -> Tuple[float, float]:
     """
     This is just a functiont prototype The intended purpose of which is to show how to 
     randomly choose pT. If the pT is chosen from the uniform distribution the cross section
@@ -135,7 +135,7 @@ def get_dsigma_d_deltay(delta_y: float, sqrtSNN: float, absYMax: float) -> Tuple
         there are many more points on low pT
         """
         tau = 1.
-        pT = rnd.Exp(tau)
+        pT = pTHatMin + rnd.Exp(tau)
         """
         In order for the TRandom to work correctly and fast tau needs to be defined so that
         int_{pTHatMIn}^{pTMax} e^{-x/tau) dx = 1
@@ -148,7 +148,7 @@ def get_dsigma_d_deltay(delta_y: float, sqrtSNN: float, absYMax: float) -> Tuple
         But since the distribution is non-uniform the normalization 
         needs to be explicitly calculated as sum of weig
         """
-        normalization += math.exp(-pT/tau) # here exp(-pT/tau) is weight
+        normalization += math.exp(-(pT + pTHatMin)/tau) # here exp(-pT/tau) is weight
 
         # dummy value
         result += 1e-6

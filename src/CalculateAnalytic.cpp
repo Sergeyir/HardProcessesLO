@@ -182,7 +182,7 @@ double GetDSigmaDPT(const double pT, const double sqrtSNN, const double absYMax,
    return result;
 }
 
-double GetDSigmaDDeltaY(const double deltaY, const double sqrtSNN, const double absYMax, double &err)
+double GetDSigmaDDeltaY(const double deltaY, const double sqrtSNN, const double absYMax, const double pTHatMin, double &err)
 {
    // This is just a functiont prototype The intended purpose of which is to show how to 
    // randomly choose pT. If the pT is chosen from the uniform distribution the cross section
@@ -200,7 +200,7 @@ double GetDSigmaDDeltaY(const double deltaY, const double sqrtSNN, const double 
       // This is one way to achieve this: to distrubute pT in a way so that 
       // there are many more points on low pT
       const double tau = 1.;
-      const double pT = rnd.Exp(tau);
+      const double pT = pTHatMin + rnd.Exp(tau);
       // In order for the TRandom to work correctly and fast tau needs to be defined so that
       // \int_{pTHatMIn}^{pTMax} e^{-x/tau) dx = 1
       // Where pTMax - maximum kinematicaly possible pT value
@@ -209,7 +209,7 @@ double GetDSigmaDDeltaY(const double deltaY, const double sqrtSNN, const double 
 
       // But since the distribution is non-uniform the normalization 
       // needs to be explicitly calculated as sum of weights
-      normalization += exp(-pT/tau); // here exp(-pT/tau) is weight
+      normalization += exp(-(pT + pTHatMin)/tau); // here exp(-pT/tau) is weight
 
       // dummy value
       result += 1e-6;
