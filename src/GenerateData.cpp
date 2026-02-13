@@ -16,11 +16,10 @@ int main(int argc, char **argv)
    // printing info on usage and exiting program if number of parameters is incorrect
    if (argc != 3) 
    {
-      std::cout << COLOR::BOLD_RED << "Error: " << COLOR::RESET << 
-                   "Expected 2 parameters while " + std::to_string(argc - 1) + " "\
-                   "parameter(s) were provided \n Usage: bin/GenerateData "\
-                   "inputFileName.yaml numberOfEvents" << std::endl;
-      std::cout << "[" << COLOR::BOLD_GREEN << "INFO" << COLOR::RESET << "] " << 
+      std::cout << "\033[1m\033[31mError:\033[0m Expected 2 parameters while " <<
+                   std::to_string(argc - 1) << " parameter(s) were provided \n"\
+                   "Usage: bin/GenerateData inputFileName.yaml numberOfEvents" << std::endl;
+      std::cout << "[\033[1m\033[32mINFO\033[0m] " << 
                    " input file example is located in input directory" << std::endl;
       return 1;
    }
@@ -30,8 +29,7 @@ int main(int argc, char **argv)
    // checking if that file exists; if it doesn't exist error is printed and the program is stopped
    if (!inputFile.is_open())
    {
-      std::cout << COLOR::BOLD_RED << "Error: " << COLOR::RESET <<
-                   "file " << argv[1] << " was not found" << std::endl;
+      std::cout << "\033[1m\033[31mError:\033[0m file " << argv[1] << " was not found" << std::endl;
       return 1;
    }
 
