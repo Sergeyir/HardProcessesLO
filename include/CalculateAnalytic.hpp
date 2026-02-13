@@ -23,8 +23,6 @@
 #include "TH1D.h"
 #include "TRandom.h"
 
-#include "Constants.hpp"
-
 /// LHDAPDF::PDF object; it is used to obtain \alpha_Q, Q1, and Q2 
 /// if initialized for the given pdf set
 LHAPDF::PDF *pdf;
@@ -96,7 +94,5 @@ double GetDSigmaDPT(const double pT, const double sqrtSNN, const double absYMax,
  * @param[out] d\sigma / dp_T
  */
 double GetDSigmaDPT(const double deltaY, const double sqrtSNN, const double absYMax, double &err);
-
-int main(int argc, char **argv);
 
 #endif /* CALCULATE_ANALYTIC_HPP */

@@ -25,8 +25,4 @@
 #include "TFile.h"
 #include "TH1D.h"
 
-#include "Constants.hpp"
-
-int main(int argc, char **argv);
-
 #endif /* GENERATE_DATA_HPP */
