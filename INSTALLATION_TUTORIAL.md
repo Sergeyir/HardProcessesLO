@@ -161,6 +161,7 @@ export LD_LIBRARY_PATH=$FASTJET3_PATH/lib:$LD_LIBRARY_PATH
 In python run
 
 ```py
+imprt ROOT
 import lhapdf
 import pythia8
 import fastjet
