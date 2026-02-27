@@ -25,10 +25,8 @@ int main(int argc, char **argv)
       return 1;
    }
 
-   // input .yaml file; we specified argv[1] to be the name of the .yaml file
-   std::ifstream inputFile(argv[1]);
    // checking if that file exists; if it doesn't exist error is printed and the program is stopped
-   if (!inputFile.is_open())
+   if (!std::filesystem::exists(argv[1]))
    {
       std::cout << "\033[1m\033[31mError:\033[0m file " << argv[1] << " was not found" << std::endl;
       return 1;
@@ -47,6 +45,7 @@ int main(int argc, char **argv)
    pdf = LHAPDF::mkPDF(pdfSet);
    rnd.SetSeed(GetRandomSeed());
 
+   std::filesystem::create_directory("output");
    TFile outputFile("output/analytic.root", "RECREATE");
 
    TH1D distrDSigmaDPT("dsigmadpT", "d#sigma/dp_{T}", 1000 + pTHatMin, 0., 100. + pTHatMin);

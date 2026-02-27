@@ -24,10 +24,8 @@ int main(int argc, char **argv)
       return 1;
    }
 
-   // input .yaml file; we specified argv[1] to be the name of the .yaml file
-   std::ifstream inputFile(argv[1]);
    // checking if that file exists; if it doesn't exist error is printed and the program is stopped
-   if (!inputFile.is_open())
+   if (!std::filesystem::exists(argv[1]))
    {
       std::cout << "\033[1m\033[31mError:\033[0m file " << argv[1] << " was not found" << std::endl;
       return 1;
@@ -67,7 +65,7 @@ int main(int argc, char **argv)
 	pythia.init();
 
    // creating directory in which the file outputFile will be written
-   void(system("mkdir -p output"));
+   std::filesystem::create_directory("output");
    // file in which all histogram will be written; the following line will create 
    // (overwrite if exists) the file output/generated.root and root will point to it
    // so that TObject objects can be written in it by using method TObject::Write()
